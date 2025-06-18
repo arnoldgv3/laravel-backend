@@ -4,6 +4,7 @@ namespace App\Repositories;
 use App\Contracts\ProductRepositoryInterface;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Pagination\CursorPaginator;
 
 class ProductRepository implements ProductRepositoryInterface
 {

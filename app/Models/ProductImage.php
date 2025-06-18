@@ -6,6 +6,21 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+
+/**
+ * @OA\Schema(
+ * schema="ProductImage",
+ * type="object",
+ * title="Product Image Schema",
+ * @OA\Property(property="id", type="integer", readOnly=true),
+ * @OA\Property(property="url", type="string", format="uri", example="http://example.com/images/product.jpg"),
+ * @OA\Property(property="alt_text", type="string", example="Imagen de una laptop"),
+ * @OA\Property(property="is_primary", type="boolean", example=true)
+ * )
+ */
+
+
+
 class ProductImage extends Model
 {
     use HasFactory;

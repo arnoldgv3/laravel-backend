@@ -8,6 +8,20 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+
+/**
+ * @OA\Schema(
+ * schema="Category",
+ * type="object",
+ * title="Category Schema",
+ * @OA\Property(property="id", type="integer", readOnly=true),
+ * @OA\Property(property="name", type="string", example="Laptops"),
+ * @OA\Property(property="slug", type="string", example="laptops"),
+ * @OA\Property(property="parent_id", type="integer", nullable=true, example=1)
+ * )
+ */
+
+
 class Category extends Model
 {
     use HasFactory;

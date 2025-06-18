@@ -2,6 +2,7 @@
 namespace App\Contracts;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Pagination\CursorPaginator;
 
 interface ProductRepositoryInterface
 {

@@ -8,9 +8,20 @@ use Illuminate\Http\Request;
 
 class AnalyticsController extends Controller
 {
-    /**
-     * GET /api/analytics/low-stock
-     * Obtiene productos con bajo stock.
+     /**
+     * @OA\Get(
+     * path="/api/analytics/low-stock",
+     * tags={"Analytics"},
+     * summary="Obtener productos con bajo stock",
+     * description="Devuelve una lista de productos cuyo stock actual es menor o igual a su umbral de bajo stock (Requiere rol de 'admin').",
+     * security={{"bearerAuth":{}}},
+     * @OA\Response(
+     * response=200,
+     * description="Lista de productos con bajo stock",
+     * @OA\JsonContent(type="array", @OA\Items(ref="#/components/schemas/Product"))
+     * ),
+     * @OA\Response(response=403, description="Acceso denegado")
+     * )
      */
     public function lowStock()
     {
@@ -23,8 +34,19 @@ class AnalyticsController extends Controller
     }
     
     /**
-     * GET /api/analytics/popular
-     * Obtiene los productos más vistos.
+     * @OA\Get(
+     * path="/api/analytics/popular",
+     * tags={"Analytics"},
+     * summary="Obtener productos más vistos",
+     * description="Devuelve una lista de los productos más populares basado en su contador de vistas (Requiere rol de 'admin').",
+     * security={{"bearerAuth":{}}},
+     * @OA\Response(
+     * response=200,
+     * description="Lista de productos populares",
+     * @OA\JsonContent(type="array", @OA\Items(ref="#/components/schemas/Product"))
+     * ),
+     * @OA\Response(response=403, description="Acceso denegado")
+     * )
      */
     public function popularProducts()
     {
