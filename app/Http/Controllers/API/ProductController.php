@@ -11,11 +11,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-    public function __construct(private ProductServiceInterface $productService)
-    {
-        // Proteger rutas de escritura con middleware de autenticación y de admin
-        $this->middleware(['auth:api', 'admin'])->only(['store', 'update', 'destroy', 'uploadImage']);
-    }
+    
 
     /**
      * @OA\Get(
@@ -48,6 +44,10 @@ class ProductController extends Controller
      * )
      * )
      */
+
+      public function __construct(private ProductServiceInterface $productService)
+    {
+    }
 
     // GET /api/products - Listado con filtros avanzados
     public function index(Request $request)

@@ -26,9 +26,11 @@ class UserFactory extends Factory
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+            // ¡CORREGIDO! Usamos 'password_hash' y no 'password'
+            'password_hash' => static::$password ??= Hash::make('password'),
+            // ¡ELIMINADO! La columna 'email_verified_at' no existe en nuestra tabla.
+            'role' => 'customer',
+            'is_active' => true,
         ];
     }
 

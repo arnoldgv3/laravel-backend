@@ -12,11 +12,7 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 class AuthController extends Controller
 {
    
-    public function __construct()
-    {
-        // Aplicar middleware de autenticación a todos los métodos excepto login y register
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
-    }
+    
     /**
      * @OA\Post(
      * path="/api/auth/login",

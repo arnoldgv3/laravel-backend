@@ -10,7 +10,7 @@
     },
     "servers": [
         {
-            "url": "http://my-default-host.com",
+            "url": "http://localhost:8080",
             "description": "Servidor Principal de la API"
         }
     ],
@@ -311,7 +311,7 @@
                 ],
                 "summary": "Listar y filtrar productos",
                 "description": "Obtiene una lista paginada de productos con opciones avanzadas de filtrado y ordenamiento.",
-                "operationId": "ab015cc2055ac75e6d23c628675c26e7",
+                "operationId": "f802bb4f451efa0794f3ceaa561d7cde",
                 "parameters": [
                     {
                         "name": "search",
