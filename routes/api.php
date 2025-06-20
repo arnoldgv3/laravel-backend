@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\API\AnalyticsController;
+use App\Http\Controllers\API\CategoryController;
 
 // --- INICIO DE LA CONFIGURACIÓN DEL LÍMITE DE PETICIONES ---
 
@@ -47,6 +48,9 @@ Route::middleware('throttle:60,1')->group(function () {
         Route::get('low-stock', [AnalyticsController::class, 'lowStock'])->name('low-stock');
         Route::get('popular', [AnalyticsController::class, 'popularProducts'])->name('popular');
     });
+
+    // Rutas de Categorías
+    Route::apiResource('categories', CategoryController::class);
 
 });
 // --- FIN DE LA CONFIGURACIÓN ---
