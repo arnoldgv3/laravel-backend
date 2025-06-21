@@ -98,13 +98,17 @@ class ProductController extends Controller
             'name' => 'required|string|max:255',
             'sku' => 'required|string|unique:products,sku',
             'price' => 'required|numeric|min:0',
-            // ... otras validaciones
+            'stock' => 'required|integer|min:0', // Add stock validation
+            'description' => 'nullable|string',
+            'status' => 'required|in:active,inactive,draft',
+            'featured' => 'boolean',
+            // Add other fields as needed
         ]);
-
+    
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
         }
-
+    
         $product = $this->productService->createProduct($validator->validated());
         return response()->json($product, 201);
     }

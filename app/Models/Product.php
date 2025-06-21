@@ -48,6 +48,7 @@ class Product extends Model
         'weight',
         'status',
         'featured',
+        'views_count',
     ];
 
     protected $casts = [
