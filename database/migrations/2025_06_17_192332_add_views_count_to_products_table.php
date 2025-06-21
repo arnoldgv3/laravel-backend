@@ -11,8 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            //
+        Schema::create('api_keys', function (Blueprint $table) {
+            $table->id();
+            // ... your other columns like user_id, key_hash, etc., go here ...
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('name');
+            $table->text('key_hash');
+            $table->timestamp('last_used_at')->nullable();
+            $table->timestamp('expires_at')->nullable();
+
+            $table->timestamps(); // <-- ADD THIS LINE
         });
     }
 
@@ -21,8 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('api_keys');
     }
 };
